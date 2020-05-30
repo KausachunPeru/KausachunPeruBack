@@ -81,7 +81,8 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    <!-- Laravel -->
+                    <img src="https://media.discordapp.net/attachments/716331117686554654/716334564594679919/IMG_20200527_154222.jpg?width=420&height=560"></img>
                 </div>
 
                 <div class="links">
