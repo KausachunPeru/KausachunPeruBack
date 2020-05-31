@@ -12,7 +12,6 @@ class PersonaController extends Controller
     public function add(Request $request){
         try
         {
-            return $request;
             $persona = new Persona();
             $persona->nombres = $request->nombres;
             $persona->apellidos = $request->apellidos;
@@ -25,7 +24,7 @@ class PersonaController extends Controller
             $persona->save();
             
             return response()->json(['status' => true, 
-                'message'=> 'Solicitud Creada',
+                'message'=> 'Persona Creada',
                 'body'=> $persona],
                 200);
         }
