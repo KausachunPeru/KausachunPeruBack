@@ -4,9 +4,34 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\CategoryProduct;
+use App\Http\Models\SolicitudCampesino;
 
 class SolicitudCampesinoController extends Controller
 {
     //
+    public function add(Request $request){
+        try
+        {
+            $solicitud = new SolicitudCampesino();
+            $solicitud->detalle = $request->detalle;
+            $solicitud->comentario = $request->comentario;
+            $solicitud->fecha = $request->fecha;
+            $solicitud->idEstado = $request->idEstado;
+            $solicitud->idTipo = $request->idTipo;
+            $solicitud->idPersona = $request->idPersona;
+            $solicitud->save();
+            
+            return response()->json(['status' => true, 
+                'message'=> 'Solicitud Creada',
+                'body'=> $solicitud],
+                200);
+        }
+        catch(\Exception $e)
+        {
+            return response()->json(['status' => false,
+                'message'=> 'Hubo un error',
+                'body' => $e->getMessage()],
+                500);
+        }
+    }
 }

@@ -29,4 +29,23 @@ class TipoAyudaController extends Controller
                 500);
         }
     }
+
+    public function all(){
+        try
+        {
+            $all = TipoAyuda::all();
+
+            return response()->json(['status' => true, 
+                'message'=> 'Tipos Encontrados',
+                'body'=> $all],
+                200);
+        }
+        catch(\Exception $e)
+        {
+            return response()->json(['status' => false,
+                'message'=> 'Hubo un error',
+                'body' => $e->getMessage()],
+                500);
+        }
+    }
 }
