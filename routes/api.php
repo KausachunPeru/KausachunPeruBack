@@ -22,8 +22,8 @@ Route::prefix('Persona')->group(function(){
     Route::post('add', 'Api\PersonaController@add');
     Route::get('tipo/{nombre}/add', 'Api\TipoPersonaController@add');
     Route::get('tipo/all', 'Api\TipoPersonaController@all');
-    Route::get('tipo/{id}', 'Api\TipoPersonaController@tipo');
-    Route::get('find/{id}', 'Api\TipoPersonaController@find');
+    Route::get('tipo/{id}', 'Api\PersonaController@tipo');
+    Route::get('find/{id}', 'Api\PersonaController@find');
 });
 
 Route::prefix('Ayuda')->group(function(){
