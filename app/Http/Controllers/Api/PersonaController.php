@@ -40,7 +40,7 @@ class PersonaController extends Controller
     public function tipo($id){
         try
         {
-            $personas = Persona::where('idTipo',$id)->get();
+            $personas = Persona::where('idTipo',$id)->with(['tipo','provincia'])->get();
             
             return response()->json(['status' => true, 
                 'message'=> 'Personas encontradas',
@@ -59,7 +59,7 @@ class PersonaController extends Controller
     public function find($id){
         try
         {
-            $persona = Persona::where('id',$id)->first();
+            $persona = Persona::where('id',$id)->with(['tipo','provincia'])->first();
             
             return response()->json(['status' => true, 
                 'message'=> 'Persona encontrada',
