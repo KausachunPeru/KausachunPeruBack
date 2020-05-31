@@ -17,7 +17,7 @@ class CreatePersonaTable extends Migration
             $table->increments('id')->unsigned();;
             $table->string('nombres');
             $table->string('apellidos');
-            $table->string('dni');
+            $table->string('dni')->nullable();
             $table->string('telefono');
             $table->string('correo');
             $table->string('cargo')->nullable();

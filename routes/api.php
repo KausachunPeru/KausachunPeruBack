@@ -23,6 +23,7 @@ Route::prefix('Persona')->group(function(){
     Route::get('tipo/{nombre}/add', 'Api\TipoPersonaController@add');
     Route::get('tipo/all', 'Api\TipoPersonaController@all');
     Route::get('tipo/{id}', 'Api\TipoPersonaController@tipo');
+    Route::get('find/{id}', 'Api\TipoPersonaController@find');
 });
 
 Route::prefix('Ayuda')->group(function(){

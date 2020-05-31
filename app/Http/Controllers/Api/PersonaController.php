@@ -55,4 +55,24 @@ class PersonaController extends Controller
                 500);
         }
     }
+
+    public function find($id){
+        try
+        {
+            $persona = Persona::where('id',$id)->first();
+            
+            return response()->json(['status' => true, 
+                'message'=> 'Persona encontrada',
+                'body'=> $persona],
+                200);
+        }
+        catch(\Exception $e)
+        {
+            return response()->json(['status' => false,
+                'message'=> 'Hubo un error',
+                'body' => $e->getMessage()],
+                500);
+        }
+    }
+
 }
