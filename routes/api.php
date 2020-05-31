@@ -17,3 +17,18 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::prefix('Persona')->group(function(){
+    Route::get('tipo/{nombre}/add', 'Api\TipoPersonaController@add');
+
+});
+
+Route::prefix('Ayuda')->group(function(){
+    Route::get('tipo/{nombre}/add', 'Api\TipoAyudaController@add');
+
+});
+
+Route::prefix('Propuesta')->group(function(){
+    Route::get('tipo/{nombre}/add', 'Api\TipoPropuestaController@add');
+
+});
