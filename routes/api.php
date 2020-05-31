@@ -45,9 +45,14 @@ Route::prefix('Campesino')->group(function(){
 
 Route::prefix('Entidad')->group(function(){
     Route::post('solicitud/add', 'Api\SolicitudEntidaController@add');
+    Route::post('add', 'Api\EntidadController@add');
 });
 
 Route::prefix('Provincia')->group(function(){
     Route::get('tipo/{nombre}/add', 'Api\ProvinciaController@add');
     Route::get('tipo/all', 'Api\ProvinciaController@all');
+});
+
+Route::prefix('Evento')->group(function(){
+    Route::post('add', 'Api\EventoController@add');
 });
