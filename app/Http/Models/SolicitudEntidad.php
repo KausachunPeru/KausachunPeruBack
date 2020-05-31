@@ -14,4 +14,19 @@ class SolicitudEntidad extends Model
     protected $fillable = [
         'detalle','comentario','fecha','idEstado','idTipo','idEntidad'
     ];
+
+    public function estado()
+    {
+        return $this->belongsTo('App\Http\Models\Estado','idEstado','id');
+    }
+
+    public function tipo()
+    {
+        return $this->belongsTo('App\Http\Models\TipoPropuesta','idTipo','id');
+    }
+
+    public function entidad()
+    {
+        return $this->belongsTo('App\Http\Models\Entidad','idEntidad','id');
+    }
 }

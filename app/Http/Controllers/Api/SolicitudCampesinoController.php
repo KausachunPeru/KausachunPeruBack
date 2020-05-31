@@ -83,7 +83,7 @@ class SolicitudCampesinoController extends Controller
     public function solicitudes(){
         try
         {
-            $solicitudes = SolicitudCampesino::all();
+            $solicitudes = SolicitudCampesino::with(['estado','tipo','persona'])->get();
             
             return response()->json(['status' => true, 
                 'message'=> 'Solicitudes Encontradas',
@@ -102,7 +102,7 @@ class SolicitudCampesinoController extends Controller
     public function solicitud($id){
         try
         {
-            $solicitudes = SolicitudCampesino::where('id',$id)->first();
+            $solicitudes = SolicitudCampesino::where('id',$id)->with(['estado','tipo','persona'])->first();
             
             return response()->json(['status' => true, 
                 'message'=> 'Solicitudes Encontradas',

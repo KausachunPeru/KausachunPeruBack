@@ -83,7 +83,7 @@ class SolicitudEntidaController extends Controller
     public function solicitudes(){
         try
         {
-            $solicitudes = SolicitudEntidad::all();
+            $solicitudes = SolicitudEntidad::with(['estado','tipo','entidad'])->get();
             
             return response()->json(['status' => true, 
                 'message'=> 'Solicitudes Encontradas',
@@ -102,7 +102,7 @@ class SolicitudEntidaController extends Controller
     public function solicitud($id){
         try
         {
-            $solicitudes = SolicitudEntidad::where('id',$id)->first();
+            $solicitudes = SolicitudEntidad::where('id',$id)->with(['estado','tipo','entidad'])->first();
             
             return response()->json(['status' => true, 
                 'message'=> 'Solicitudes Encontradas',
