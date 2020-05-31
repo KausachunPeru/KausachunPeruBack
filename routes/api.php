@@ -26,12 +26,12 @@ Route::prefix('Persona')->group(function(){
 
 Route::prefix('Ayuda')->group(function(){
     Route::get('tipo/{nombre}/add', 'Api\TipoAyudaController@add');
-    Route::get('tipo/all', 'Api\TipoPersonaController@all');
+    Route::get('tipo/all', 'Api\TipoAyudaController@all');
 });
 
 Route::prefix('Propuesta')->group(function(){
     Route::get('tipo/{nombre}/add', 'Api\TipoPropuestaController@add');
-    Route::get('tipo/all', 'Api\TipoPersonaController@all');
+    Route::get('tipo/all', 'Api\TipoPropuestaController@all');
 });
 
 Route::prefix('Usuario')->group(function(){
