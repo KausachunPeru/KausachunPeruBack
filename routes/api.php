@@ -42,7 +42,7 @@ Route::prefix('Propuesta')->group(function(){
 
 Route::prefix('Usuario')->group(function(){
     Route::post('add', 'Api\UsuarioController@add');
-    Route::post('login', 'Api\UsuarioController@all');
+    Route::post('login', 'Api\UsuarioController@login');
 });
 
 Route::prefix('Campesino')->group(function(){
