@@ -36,4 +36,23 @@ class PersonaController extends Controller
                 500);
         }
     }
+
+    public function tipo($id){
+        try
+        {
+            $personas = Persona::where('idTipo',$id)->get();
+            
+            return response()->json(['status' => true, 
+                'message'=> 'Personas encontradas',
+                'body'=> $personas],
+                200);
+        }
+        catch(\Exception $e)
+        {
+            return response()->json(['status' => false,
+                'message'=> 'Hubo un error',
+                'body' => $e->getMessage()],
+                500);
+        }
+    }
 }

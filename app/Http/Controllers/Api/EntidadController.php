@@ -37,4 +37,23 @@ class EntidadController extends Controller
                 500);
         }
     }
+
+    public function estado($id){
+        try
+        {
+            $entidades = Entidad::where('idEstado',$id)->get();
+            
+            return response()->json(['status' => true, 
+                'message'=> 'Entidades Encontradas',
+                'body'=> $entidades],
+                200);
+        }
+        catch(\Exception $e)
+        {
+            return response()->json(['status' => false,
+                'message'=> 'Hubo un error',
+                'body' => $e->getMessage()],
+                500);
+        }
+    }
 }

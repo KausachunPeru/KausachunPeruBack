@@ -34,4 +34,23 @@ class SolicitudCampesinoController extends Controller
                 500);
         }
     }
+
+    public function estado($id){
+        try
+        {
+            $solicitudes = SolicitudCampesino::where('idEstado',$id)->get();
+            
+            return response()->json(['status' => true, 
+                'message'=> 'Solicitudes Encontradas',
+                'body'=> $solicitudes],
+                200);
+        }
+        catch(\Exception $e)
+        {
+            return response()->json(['status' => false,
+                'message'=> 'Hubo un error',
+                'body' => $e->getMessage()],
+                500);
+        }
+    }
 }

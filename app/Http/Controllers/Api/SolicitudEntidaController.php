@@ -12,7 +12,7 @@ class SolicitudEntidaController extends Controller
     public function add(Request $request){
         try
         {
-            $solicitud = new SolicitudCampesino();
+            $solicitud = new SolicitudEntidad();
             $solicitud->detalle = $request->detalle;
             $solicitud->comentario = $request->comentario;
             $solicitud->fecha = $request->fecha;
@@ -24,6 +24,25 @@ class SolicitudEntidaController extends Controller
             return response()->json(['status' => true, 
                 'message'=> 'Solicitud Creada',
                 'body'=> $solicitud],
+                200);
+        }
+        catch(\Exception $e)
+        {
+            return response()->json(['status' => false,
+                'message'=> 'Hubo un error',
+                'body' => $e->getMessage()],
+                500);
+        }
+    }
+
+    public function estado($id){
+        try
+        {
+            $solicitudes = SolicitudEntidad::where('idEstado',$id)->get();
+            
+            return response()->json(['status' => true, 
+                'message'=> 'Solicitudes Encontradas',
+                'body'=> $solicitudes],
                 200);
         }
         catch(\Exception $e)

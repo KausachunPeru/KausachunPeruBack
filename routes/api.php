@@ -22,6 +22,7 @@ Route::prefix('Persona')->group(function(){
     Route::get('add', 'Api\PersonaController@add');
     Route::get('tipo/{nombre}/add', 'Api\TipoPersonaController@add');
     Route::get('tipo/all', 'Api\TipoPersonaController@all');
+    Route::get('tipo/{id}', 'Api\TipoPersonaController@tipo');
 });
 
 Route::prefix('Ayuda')->group(function(){
@@ -46,11 +47,14 @@ Route::prefix('Usuario')->group(function(){
 
 Route::prefix('Campesino')->group(function(){
     Route::post('solicitud/add', 'Api\SolicitudCampesinoController@add');
+    Route::get('solicitud/estado/{id}', 'Api\SolicitudCampesinoController@estado');
 });
 
 Route::prefix('Entidad')->group(function(){
     Route::post('solicitud/add', 'Api\SolicitudEntidaController@add');
     Route::post('add', 'Api\EntidadController@add');
+    Route::get('estado/{id}', 'Api\EntidadController@estado');
+    Route::get('solicitud/estado/{id}', 'Api\EntidadController@estado');
 });
 
 Route::prefix('Provincia')->group(function(){
