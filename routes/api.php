@@ -54,6 +54,9 @@ Route::prefix('Campesino')->group(function(){
 });
 
 Route::prefix('Entidad')->group(function(){
+    Route::post('update', 'Api\SolicitudEntidaController@update');
+    Route::get('find/{id}', 'Api\EntidadController@find');
+    Route::get('all', 'Api\EntidadController@find');
     Route::post('solicitud/add', 'Api\SolicitudEntidaController@add');
     Route::post('add', 'Api\EntidadController@add');
     Route::get('estado/{id}', 'Api\EntidadController@estado');
