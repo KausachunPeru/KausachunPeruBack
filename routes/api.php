@@ -29,6 +29,11 @@ Route::prefix('Ayuda')->group(function(){
     Route::get('tipo/all', 'Api\TipoAyudaController@all');
 });
 
+Route::prefix('Estado')->group(function(){
+    Route::get('{nombre}/add', 'Api\EstadoController@add');
+    Route::get('all', 'Api\EstadoController@all');
+});
+
 Route::prefix('Propuesta')->group(function(){
     Route::get('tipo/{nombre}/add', 'Api\TipoPropuestaController@add');
     Route::get('tipo/all', 'Api\TipoPropuestaController@all');
