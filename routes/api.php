@@ -19,7 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::prefix('Persona')->group(function(){
-    Route::get('add', 'Api\PersonaController@add');
+    Route::post('add', 'Api\PersonaController@add');
     Route::get('tipo/{nombre}/add', 'Api\TipoPersonaController@add');
     Route::get('tipo/all', 'Api\TipoPersonaController@all');
     Route::get('tipo/{id}', 'Api\TipoPersonaController@tipo');

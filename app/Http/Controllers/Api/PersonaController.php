@@ -12,6 +12,7 @@ class PersonaController extends Controller
     public function add(Request $request){
         try
         {
+            return $request;
             $persona = new Persona();
             $persona->nombres = $request->nombres;
             $persona->apellidos = $request->apellidos;
