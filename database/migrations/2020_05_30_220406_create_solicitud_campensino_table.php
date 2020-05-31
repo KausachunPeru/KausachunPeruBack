@@ -16,7 +16,7 @@ class CreateSolicitudCampensinoTable extends Migration
         Schema::create('solicitud_campensino', function (Blueprint $table) {
             $table->increments('id')->unsigned();;
             $table->string('detalle');
-            $table->string('comentario');
+            $table->string('comentario')->nullable();
             $table->date('fecha');
             $table->integer('idEstado')->unsigned();
             $table->integer('idTipo')->unsigned();
