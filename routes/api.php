@@ -67,8 +67,8 @@ Route::prefix('Entidad')->group(function(){
 });
 
 Route::prefix('Provincia')->group(function(){
-    Route::get('tipo/{nombre}/add', 'Api\ProvinciaController@add');
-    Route::get('tipo/all', 'Api\ProvinciaController@all');
+    Route::get('{nombre}/add', 'Api\ProvinciaController@add');
+    Route::get('all', 'Api\ProvinciaController@all');
 });
 
 Route::prefix('Evento')->group(function(){
