@@ -48,6 +48,9 @@ Route::prefix('Usuario')->group(function(){
 Route::prefix('Campesino')->group(function(){
     Route::post('solicitud/add', 'Api\SolicitudCampesinoController@add');
     Route::get('solicitud/estado/{id}', 'Api\SolicitudCampesinoController@estado');
+    Route::get('solicitud/{id}', 'Api\SolicitudCampesinoController@solicitud');
+    Route::get('solicitudes', 'Api\SolicitudCampesinoController@solicitudes');
+    Route::post('solicitud/update', 'Api\SolicitudCampesinoController@update');
 });
 
 Route::prefix('Entidad')->group(function(){
@@ -55,6 +58,9 @@ Route::prefix('Entidad')->group(function(){
     Route::post('add', 'Api\EntidadController@add');
     Route::get('estado/{id}', 'Api\EntidadController@estado');
     Route::get('solicitud/estado/{id}', 'Api\EntidadController@estado');
+    Route::get('solicitud/{id}', 'Api\SolicitudEntidaController@solicitud');
+    Route::get('solicitudes', 'Api\SolicitudEntidaController@solicitudes');
+    Route::post('solicitud/update', 'Api\SolicitudEntidaController@update');
 });
 
 Route::prefix('Provincia')->group(function(){

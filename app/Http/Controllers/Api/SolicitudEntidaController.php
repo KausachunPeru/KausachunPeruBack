@@ -35,10 +35,74 @@ class SolicitudEntidaController extends Controller
         }
     }
 
+    public function update(Request $request){
+        try
+        {
+            $solicitud = SolicitudEntidad::where('id',$request->id)->first();
+            $solicitud->detalle = $request->detalle;
+            $solicitud->comentario = $request->comentario;
+            $solicitud->fecha = $request->fecha;
+            $solicitud->idEstado = $request->idEstado;
+            $solicitud->idTipo = $request->idTipo;
+            $solicitud->idEntidad = $request->idEntidad;
+            $solicitud->save();
+            
+            return response()->json(['status' => true, 
+                'message'=> 'Solicitud Actualizada',
+                'body'=> $solicitud],
+                200);
+        }
+        catch(\Exception $e)
+        {
+            return response()->json(['status' => false,
+                'message'=> 'Hubo un error',
+                'body' => $e->getMessage()],
+                500);
+        }
+    }
+
     public function estado($id){
         try
         {
             $solicitudes = SolicitudEntidad::where('idEstado',$id)->get();
+            
+            return response()->json(['status' => true, 
+                'message'=> 'Solicitudes Encontradas',
+                'body'=> $solicitudes],
+                200);
+        }
+        catch(\Exception $e)
+        {
+            return response()->json(['status' => false,
+                'message'=> 'Hubo un error',
+                'body' => $e->getMessage()],
+                500);
+        }
+    }
+
+    public function solicitudes(){
+        try
+        {
+            $solicitudes = SolicitudEntidad::all();
+            
+            return response()->json(['status' => true, 
+                'message'=> 'Solicitudes Encontradas',
+                'body'=> $solicitudes],
+                200);
+        }
+        catch(\Exception $e)
+        {
+            return response()->json(['status' => false,
+                'message'=> 'Hubo un error',
+                'body' => $e->getMessage()],
+                500);
+        }
+    }
+
+    public function solicitud($id){
+        try
+        {
+            $solicitudes = SolicitudEntidad::where('id',$id)->first();
             
             return response()->json(['status' => true, 
                 'message'=> 'Solicitudes Encontradas',
